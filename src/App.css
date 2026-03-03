@@ -1,0 +1,775 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  color: var(--text-primary);
+  background:
+    radial-gradient(1100px 560px at 10% -10%, rgba(255, 159, 90, 0.28), transparent 58%),
+    radial-gradient(980px 580px at 100% 0%, rgba(87, 140, 255, 0.24), transparent 52%),
+    linear-gradient(180deg, #0a1120 0%, #0d1628 45%, #0a1322 100%);
+  text-align: center;
+  overflow: hidden;
+}
+
+.page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.34;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke='%23b9d4ff' stroke-opacity='0.65' stroke-width='1.5' font-family='monospace' font-size='20'%3E%3Ctext x='20' y='55'%3E%26lt;/%26gt;%3C/text%3E%3Ctext x='145' y='95'%3E%7B%7D%3C/text%3E%3Ctext x='42' y='165'%3E()%3C/text%3E%3Ctext x='165' y='185'%3E%23%3C/text%3E%3C/g%3E%3C/svg%3E");
+  background-size: 240px 240px;
+  background-repeat: repeat;
+}
+
+.page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero,
+.section {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 4.8rem 0 3rem;
+  animation: riseIn 700ms ease-out;
+}
+
+.site-top-title {
+  margin: 0 0 0.9rem;
+  color: #d8e6ff;
+  text-align: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.3rem;
+}
+
+.hero-text {
+  max-width: 760px;
+}
+
+.eyebrow {
+  margin: 0 0 0.8rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  font-weight: 600;
+}
+
+h1 {
+  margin: 0.6rem 0 0.8rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: #f2f7ff;
+  white-space: nowrap;
+}
+
+.qualification {
+  margin: -0.25rem 0 0.9rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: #9fb4dc;
+}
+
+.lead {
+  margin: 0;
+  max-width: 680px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  font-size: clamp(0.74rem, 1.05vw, 0.86rem);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.eyebrow + .lead {
+  margin-top: 0.4rem;
+}
+
+.hero-meta {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.hero-button {
+  border: 1px solid rgba(156, 185, 255, 0.45);
+  background: rgba(35, 62, 106, 0.92);
+  border-radius: 999px;
+  padding: 0.52rem 1rem;
+  font-size: 0.84rem;
+  color: #e8f0ff;
+  font-family: 'Times New Roman', Times, serif;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hero-button-secondary {
+  background: rgba(20, 33, 58, 0.74);
+}
+
+.hero-button:hover {
+  color: var(--accent-deep);
+}
+
+.contact-actions .hero-button:hover,
+.contact-actions .hero-button:focus-visible {
+  color: var(--accent-deep);
+}
+
+.contact-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 10, 18, 0.7);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.contact-modal {
+  position: relative;
+  width: min(460px, 92vw);
+  border: 1px solid rgba(171, 196, 255, 0.3);
+  border-radius: 1rem;
+  background: rgba(16, 30, 52, 0.96);
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.contact-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(171, 196, 255, 0.35);
+  background: rgba(20, 33, 58, 0.85);
+  color: #e8f0ff;
+  cursor: pointer;
+}
+
+.contact-close:hover {
+  color: var(--accent-deep);
+}
+
+.contact-line {
+  margin-top: 0.45rem;
+  color: #dbe8ff;
+}
+
+.contact-form {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.contact-input {
+  width: 100%;
+  border: 1px solid rgba(171, 196, 255, 0.32);
+  background: rgba(10, 20, 36, 0.95);
+  color: #e8f0ff;
+  border-radius: 0.55rem;
+  padding: 0.58rem 0.7rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.9rem;
+}
+
+.contact-textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.contact-actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.contact-status {
+  margin-top: 0.7rem;
+  color: #dbe8ff;
+  font-size: 0.86rem;
+}
+
+.hero-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.profile-photo-wrap {
+  margin: 0;
+  text-align: center;
+  transform: translateY(0px);
+}
+
+.profile-photo {
+  display: block;
+  margin: 0 auto;
+  width: clamp(200px, 28vw, 280px);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transform: none;
+  border-radius: 1.2rem;
+  border: 3px solid rgba(208, 225, 255, 0.82);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.35);
+  background: #152741;
+}
+
+.profile-photo-wrap figcaption {
+  margin-top: 0.45rem;
+  font-size: 0.78rem;
+  color: #9ab2dd;
+}
+
+main {
+  padding-bottom: 4rem;
+}
+
+.section {
+  margin-top: 1.25rem;
+  padding: 1.5rem;
+  border-radius: 1.1rem;
+  border: 1px solid rgba(158, 188, 255, 0.21);
+  background: rgba(16, 30, 52, 0.72);
+  backdrop-filter: blur(2px);
+}
+
+.section.bio {
+  margin-top: 0.12rem;
+}
+
+h2 {
+  margin: 0 0 0.8rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: clamp(1.45rem, 3.4vw, 2rem);
+  color: #f1f6ff;
+}
+
+#bio-title {
+  color: #f1f6ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+}
+
+#education-title {
+  color: #f1f6ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  text-transform: uppercase;
+}
+
+#experience-title {
+  color: #f1f6ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  text-transform: uppercase;
+}
+
+#skills-title {
+  color: #f1f6ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  text-transform: uppercase;
+}
+
+#graduation-title {
+  color: #f1f6ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  text-transform: uppercase;
+}
+
+#projects-title {
+  color: #f1f6ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  text-transform: uppercase;
+}
+
+#video-title {
+  color: #f1f6ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+}
+
+h3 {
+  margin: 0.3rem 0 0.4rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.2rem;
+}
+
+p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.bio p + p {
+  margin-top: 0.9rem;
+}
+
+.bio p {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  font-size: clamp(0.76rem, 1.05vw, 0.9rem);
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.education-list {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.education-item {
+  border: 1px solid rgba(171, 196, 255, 0.22);
+  border-radius: 0.8rem;
+  padding: 1.15rem 1.15rem;
+  background: rgba(14, 27, 46, 0.7);
+  color: #dbe8ff;
+}
+
+.education-degree {
+  margin: 0 0 0.35rem;
+  font-size: clamp(0.92rem, 1.1vw, 1.02rem);
+  color: #f1f6ff;
+  text-transform: uppercase;
+}
+
+.education-institute {
+  margin: 0 0 0.45rem;
+  color: #a9c1ea;
+  font-size: 0.84rem;
+  text-transform: uppercase;
+}
+
+.education-label {
+  margin: 0 0 0.35rem;
+  color: var(--accent-deep);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.education-modules {
+  margin: 0.2rem 0 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  color: #dbe8ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  font-size: clamp(0.76rem, 1.02vw, 0.9rem);
+  line-height: 1.7;
+}
+
+.education-modules li + li {
+  margin-top: 0.22rem;
+}
+
+.experience-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.experience-item {
+  border: 1px solid rgba(171, 196, 255, 0.22);
+  border-radius: 0.8rem;
+  padding: 1.15rem 1.15rem;
+  background: rgba(14, 27, 46, 0.7);
+}
+
+.experience-role {
+  margin: 0 0 0.35rem;
+  font-size: clamp(0.95rem, 1.2vw, 1.08rem);
+  color: #f1f6ff;
+  text-transform: uppercase;
+}
+
+.experience-company {
+  margin: 0 0 0.25rem;
+  color: #a9c1ea;
+  font-size: 0.84rem;
+  text-transform: uppercase;
+}
+
+.experience-period {
+  margin: 0 0 0.55rem;
+  color: var(--accent-deep);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.experience-summary {
+  margin-bottom: 0.65rem;
+  color: #dbe8ff;
+  font-size: clamp(0.78rem, 1.05vw, 0.9rem);
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+.experience-points {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  color: #dbe8ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  font-size: clamp(0.76rem, 1.02vw, 0.9rem);
+  line-height: 1.65;
+}
+
+.experience-points li + li {
+  margin-top: 0.22rem;
+}
+
+.skills-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.skill-pill {
+  border-radius: 0.75rem;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid rgba(171, 196, 255, 0.22);
+  background: linear-gradient(165deg, rgba(15, 32, 58, 0.95), rgba(12, 26, 47, 0.88));
+  color: #dbe8ff;
+  text-align: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  font-size: clamp(0.96rem, 1.24vw, 1.1rem);
+  line-height: 1.65;
+}
+
+.graduation-grid {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.graduation-card {
+  margin: 0;
+  border: 1px solid rgba(171, 196, 255, 0.22);
+  border-radius: 0.85rem;
+  overflow: hidden;
+  background: rgba(12, 25, 45, 0.9);
+}
+
+.graduation-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.project-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.project-card {
+  border: 1px solid rgba(171, 196, 255, 0.24);
+  border-radius: 0.95rem;
+  padding: 1rem;
+  background: linear-gradient(160deg, rgba(19, 36, 63, 0.9), rgba(12, 25, 45, 0.9));
+  transition: transform 180ms ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+.project-period {
+  font-size: 0.8rem;
+  color: var(--accent-deep);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.project-stack {
+  margin-bottom: 0.65rem;
+  font-size: 0.9rem;
+  color: var(--accent-deep);
+}
+
+.project-detail {
+  text-align: center;
+  color: #dbe8ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  font-size: clamp(0.76rem, 1.02vw, 0.9rem);
+  line-height: 1.65;
+}
+
+.project-detail-label {
+  color: #a9c1ea;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+}
+
+.project-impact {
+  margin-top: 0.45rem;
+  color: #c4d8ff;
+}
+
+.project-video-frame {
+  margin-top: 0.8rem;
+  border-radius: 0.7rem;
+  overflow: hidden;
+  border: 1px solid rgba(171, 196, 255, 0.25);
+  background: #091427;
+}
+
+.video p {
+  margin-bottom: 0.85rem;
+}
+
+.video code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.08rem 0.35rem;
+  border-radius: 0.3rem;
+  color: #d6e5ff;
+}
+
+.video-frame {
+  border-radius: 0.95rem;
+  overflow: hidden;
+  border: 1px solid rgba(171, 196, 255, 0.25);
+  background: #091427;
+}
+
+video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #091427;
+}
+
+.site-footer {
+  margin: 2.4rem auto 2.2rem;
+  padding-top: 0.6rem;
+  transform: translateY(-2rem);
+}
+
+.social-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  transition: transform 180ms ease;
+}
+
+.social-link:hover,
+.social-link:focus-visible {
+  transform: translateY(-3px);
+}
+
+.social-logo {
+  width: 1.35rem;
+  height: 1.35rem;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+.footer-copy {
+  margin: 0.9rem 0 0;
+  color: #d3e2ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .page::before {
+    opacity: 0.22;
+    background-size: 200px 200px;
+  }
+
+  .hero,
+  .section,
+  .site-footer {
+    width: min(1100px, 94vw);
+  }
+
+  .hero {
+    padding: 3.3rem 0 1.8rem;
+  }
+
+  .site-top-title {
+    margin-bottom: 0.7rem;
+    font-size: clamp(0.92rem, 4.2vw, 1.05rem);
+  }
+
+  .hero-content {
+    gap: 1rem;
+  }
+
+  .profile-photo {
+    width: clamp(170px, 52vw, 230px);
+  }
+
+  .qualification {
+    font-size: 0.7rem;
+  }
+
+  .eyebrow {
+    margin-bottom: 0.55rem;
+    font-size: 0.78rem;
+  }
+
+  .section {
+    padding: 1.1rem;
+    margin-top: 0.9rem;
+  }
+
+  h1 {
+    line-height: 1;
+    white-space: normal;
+    font-size: clamp(1.55rem, 8vw, 2.25rem);
+  }
+
+  h2 {
+    font-size: clamp(1.15rem, 5.8vw, 1.45rem);
+  }
+
+  .education-list {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-pill {
+    font-size: clamp(0.86rem, 3.8vw, 0.98rem);
+  }
+
+  .graduation-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .hero-meta {
+    gap: 0.55rem;
+    margin-top: 1rem;
+  }
+
+  .hero-button {
+    width: auto;
+    max-width: 220px;
+    min-height: 2.1rem;
+    padding: 0.42rem 0.8rem;
+    font-size: 0.78rem;
+  }
+
+  .project-card:hover {
+    transform: none;
+  }
+
+  .project-detail,
+  .experience-summary,
+  .experience-points,
+  .education-modules,
+  .bio p {
+    line-height: 1.55;
+  }
+
+  .contact-modal {
+    width: min(420px, 92vw);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 0.85rem;
+  }
+
+  .contact-actions {
+    gap: 0.5rem;
+  }
+
+  .contact-actions .hero-button {
+    width: 100%;
+    max-width: none;
+  }
+
+  .contact-textarea {
+    min-height: 88px;
+  }
+
+  .site-footer {
+    transform: none;
+    margin: 1.1rem auto 1.4rem;
+    padding-top: 0;
+  }
+
+  .social-list {
+    transform: none;
+    gap: 0.6rem;
+  }
+
+  .social-link {
+    min-width: 2.3rem;
+    min-height: 2.3rem;
+  }
+
+  .footer-copy {
+    margin-top: 0.7rem;
+    padding: 0 0.4rem;
+    font-size: 0.68rem;
+    line-height: 1.4;
+  }
+}
