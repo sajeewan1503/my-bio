@@ -1,11 +1,13 @@
 import { useState } from "react";
 import "./App.css";
 
+const ASSET_BASE = import.meta.env.BASE_URL;
+
 const projectHighlights = [
   {
     title: "BMI CALCULATOR",
     stack: "React, HTML, CSS",
-    video: "/videos/bmi-calculator.mp4",
+    video: `${ASSET_BASE}videos/bmi-calculator.mp4`,
     summary:
       "This project is a BMI Calculator built with React and Vite that lets users enter their height in centimeters and weight in kilograms, validates that both inputs are numeric, calculates BMI using the standard formula (weight divided by height in meters squared), and then displays both the BMI value and a health category such as Under Weight, Normal Weight, Over Weight, or Obese, with a clean interface styled in CSS and a clear button to reset all fields and results.",
     impact:
@@ -14,7 +16,7 @@ const projectHighlights = [
   {
     title: "CURRENCY CONVERTER",
     stack: "React, HTML, CSS",
-    video: "/videos/currencyconverter.mp4",
+    video: `${ASSET_BASE}videos/currencyconverter.mp4`,
     summary:
       "This lightweight currency converter built with React and Vite delivers real-time exchange calculations using live data from the ExchangeRate API, optimizes performance through local rate caching, and ensures a smooth user experience with proper loading and error handling in a clean, well-structured codebase.",
     impact:
@@ -23,7 +25,7 @@ const projectHighlights = [
   {
     title: "WEBSITE FOR A LOGISTIC COMPANY",
     stack: "React, CSS",
-    video: "/videos/logistics-website.mp4",
+    video: `${ASSET_BASE}videos/logistics-website.mp4`,
     summary:
       "This React + Vite marketing website for Drop Ease showcases a modern, responsive courier brand presence with dynamic view switching, interactive contact modals powered by FormSubmit, and a polished dark-gold themed UI built with clean CSS and efficient frontend architecture.",
     impact:
@@ -95,12 +97,12 @@ const educationQualifications = [
 ];
 
 const graduationPhotos = [
-  { src: "/graduation/grad-1.jpg", alt: "Graduation photo 1" },
-  { src: "/graduation/grad-2.jpg", alt: "Graduation photo 2" },
-  { src: "/graduation/grad-3.jpg", alt: "Graduation photo 3" },
-  { src: "/graduation/grad-4.jpg", alt: "Graduation photo 4" },
-  { src: "/graduation/grad-5.jpg", alt: "Graduation photo 5" },
-  { src: "/graduation/grad-6.jpg", alt: "Graduation photo 6" },
+  { src: `${ASSET_BASE}graduation/grad-1.jpg`, alt: "Graduation photo 1" },
+  { src: `${ASSET_BASE}graduation/grad-2.jpg`, alt: "Graduation photo 2" },
+  { src: `${ASSET_BASE}graduation/grad-3.jpg`, alt: "Graduation photo 3" },
+  { src: `${ASSET_BASE}graduation/grad-4.jpg`, alt: "Graduation photo 4" },
+  { src: `${ASSET_BASE}graduation/grad-5.jpg`, alt: "Graduation photo 5" },
+  { src: `${ASSET_BASE}graduation/grad-6.jpg`, alt: "Graduation photo 6" },
 ];
 
 const socialPlatforms = [
@@ -186,7 +188,7 @@ function App() {
         <div className="hero-content">
           <figure className="profile-photo-wrap">
             <img
-              src="/mypp.jpg"
+              src={`${ASSET_BASE}mypp.jpg`}
               alt="Portrait of Your Name"
               className="profile-photo"
               style={{
@@ -215,7 +217,7 @@ function App() {
                 Open to Collaborations
               </button>
               <a
-                href="/resume.pdf"
+                href={`${ASSET_BASE}resume.pdf`}
                 download
                 className="hero-button hero-button-secondary"
               >
