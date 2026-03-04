@@ -148,6 +148,9 @@ function ProjectVideo({ src, title }) {
 
   return (
     <video
+      autoPlay
+      muted
+      loop
       playsInline
       controls
       preload="metadata"
