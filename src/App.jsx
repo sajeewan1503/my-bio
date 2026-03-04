@@ -14,6 +14,15 @@ const projectHighlights = [
       "Helps users quickly understand their body weight status and encourages healthier lifestyle choices.",
   },
   {
+    title: "WEATHER APP",
+    stack: "React, HTML, CSS",
+    video: `${ASSET_BASE}videos/weatherapp.mp4`,
+    summary:
+      "This project is a React + Vite weather app that lets users search for a city and fetches live weather data from the OpenWeather API, displaying temperature, location, humidity, wind speed, and coordinates with condition-based icons.",
+    impact:
+      "it delivers quick, user-friendly access to real-time weather information for any city, helping people make everyday decisions like travel, clothing, and outdoor planning while serving as a practical example of API-driven frontend development.",
+  },
+  {
     title: "CURRENCY CONVERTER",
     stack: "React, HTML, CSS",
     video: `${ASSET_BASE}videos/currencyconverter.mp4`,
@@ -337,12 +346,20 @@ function App() {
           </div>
         </section>
 
-        <section className="section graduation" aria-labelledby="graduation-title">
+        <section
+          className="section graduation"
+          aria-labelledby="graduation-title"
+        >
           <h2 id="graduation-title">Graduation Photos</h2>
           <div className="graduation-grid">
             {graduationPhotos.map((photo) => (
               <figure key={photo.src} className="graduation-card">
-                <img src={photo.src} alt={photo.alt} className="graduation-photo" loading="lazy" />
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="graduation-photo"
+                  loading="lazy"
+                />
               </figure>
             ))}
           </div>
@@ -361,11 +378,18 @@ function App() {
               aria-label={platform.name}
               title={platform.name}
             >
-              <img src={platform.logo} alt={`${platform.name} logo`} className="social-logo" />
+              <img
+                src={platform.logo}
+                alt={`${platform.name} logo`}
+                className="social-logo"
+              />
             </a>
           ))}
         </div>
-        <p className="footer-copy">© {new Date().getFullYear()} Sathiyanathan Sajeewan. All rights reserved.</p>
+        <p className="footer-copy">
+          © {new Date().getFullYear()} Sathiyanathan Sajeewan. All rights
+          reserved.
+        </p>
       </footer>
 
       {isContactOpen && (
