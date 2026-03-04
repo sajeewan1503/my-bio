@@ -548,25 +548,6 @@ p {
   background: #091427;
 }
 
-.project-video-load {
-  width: 100%;
-  min-height: 180px;
-  border: 0;
-  border-radius: 0;
-  background: linear-gradient(165deg, rgba(21, 41, 72, 0.92), rgba(11, 23, 42, 0.96));
-  color: #e8f0ff;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 0.92rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.project-video-load:hover,
-.project-video-load:focus-visible {
-  color: var(--accent-deep);
-}
-
 .video p {
   margin-bottom: 0.85rem;
 }

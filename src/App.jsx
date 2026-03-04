@@ -131,37 +131,6 @@ const socialPlatforms = [
 const CONTACT_EMAIL = "sathiyanathansajeewan3@gmail.com";
 const CONTACT_PHONE = "+94 71 872 2486";
 
-function ProjectVideo({ src, title }) {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-
-  if (!isVideoLoaded) {
-    return (
-      <button
-        type="button"
-        className="project-video-load"
-        onClick={() => setIsVideoLoaded(true)}
-      >
-        Load Demo Video
-      </button>
-    );
-  }
-
-  return (
-    <video
-      autoPlay
-      muted
-      loop
-      playsInline
-      controls
-      preload="metadata"
-      aria-label={`${title} demo video`}
-    >
-      <source src={src} type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-  );
-}
-
 function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -349,7 +318,18 @@ function App() {
                 </p>
                 {project.video && (
                   <div className="project-video-frame">
-                    <ProjectVideo src={project.video} title={project.title} />
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      controls
+                      preload="metadata"
+                      aria-label={`${project.title} demo video`}
+                    >
+                      <source src={project.video} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
                 )}
               </article>
